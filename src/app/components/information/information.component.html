@@ -1,0 +1,45 @@
+<p>information works!</p>
+<div class="container">
+<!--  <div-->
+<!--    class="items"-->
+<!--    *ngFor="let currency of currencies"-->
+<!--  >-->
+<!--  </div>-->
+  <dx-data-grid
+    id="gridContainer"
+    [dataSource]="currencies"
+    [showBorders]="true"
+    [showRowLines]="true"
+  >
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 20]"
+      [showInfo]="true">
+    </dxo-pager>
+
+    <dxi-column
+      dataField="cc"
+      caption="Acronym"
+
+    >Text</dxi-column>
+    <dxi-column
+      dataField="exchangedate"
+      caption="Date"
+    ></dxi-column>
+    <dxi-column
+      dataField="r030"
+      caption="Amount"
+      alignment="left"
+    ></dxi-column>
+    <dxi-column
+      dataField="rate"
+      caption="Rate"
+      alignment="left"
+    ></dxi-column>
+    <dxi-column
+      dataField="txt"
+      caption="Title"
+    ></dxi-column>
+  </dx-data-grid>
+</div>
