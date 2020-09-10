@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Currency, InfoService } from './info.service';
+import {Component, OnInit} from '@angular/core';
+import {Currency, InfoService} from './info.service';
 import {delay} from 'rxjs/operators';
 
 @Component({
@@ -15,11 +15,12 @@ export class InformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.preloader = true;
-    this.infoService.getApi()
+    this.infoService
+      .getApi()
       .pipe(delay(800))
       .subscribe((data) => {
-      this.currencies = data;
-      this.preloader = false;
-    });
+        this.currencies = data;
+        this.preloader = false;
+      });
   }
 }
