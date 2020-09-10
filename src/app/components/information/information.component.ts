@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Currency, InfoService } from './info.service';
-import { formatMessage } from 'devextreme/localization';
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'app-information',
@@ -9,12 +9,17 @@ import { formatMessage } from 'devextreme/localization';
 })
 export class InformationComponent implements OnInit {
   currencies: Currency[] = [];
+  preloader: boolean;
 
   constructor(private infoService: InfoService) {}
 
   ngOnInit(): void {
-    this.infoService.getApi().subscribe((data) => {
+    this.preloader = true;
+    this.infoService.getApi()
+      .pipe(delay(800))
+      .subscribe((data) => {
       this.currencies = data;
+      this.preloader = false;
     });
   }
 }
