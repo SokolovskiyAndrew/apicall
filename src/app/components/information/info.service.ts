@@ -2,19 +2,16 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-export interface Currency {
-  currencyExcerpt: string;
-  exchangeDate: string;
-  id?: number;
-  rate: number;
-  text: string;
-}
+import {Currency} from '../../shared/interfaces/interfaces';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class InfoService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   getApi(): Observable<Currency[]> {
     return this.http.get<Currency[]>(
