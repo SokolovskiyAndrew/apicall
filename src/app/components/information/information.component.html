@@ -1,6 +1,6 @@
 <div
   class="container"
-  *ngIf="!preloader; else loading"
+  *ngIf="!spinner.showSpinner"
 >
   <dx-data-grid
     id="gridContainer"
@@ -40,6 +40,4 @@
     ></dxi-column>
   </dx-data-grid>
 </div>
-<ng-template #loading>
-  <dx-load-indicator class="preloader" id="large-indicator" height="60" width="60"></dx-load-indicator>
-</ng-template>
+

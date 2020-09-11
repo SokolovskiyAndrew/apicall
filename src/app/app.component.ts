@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {LogService} from './shared/log.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +8,8 @@ import {LogService} from './shared/log.service';
 export class AppComponent {
   title = 'apicall';
   name: string;
+  // isLoaded = false;
+  // ishttpLoaded = false;
 
-  constructor(private logger: LogService) {}
-
-  testLog(): void {
-    this.logger.log('Test the log() Method');
-  }
+  constructor() {}
 }
