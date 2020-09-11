@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, SimpleChange} from '@angular/core';
-import {PreloaderService} from '../../preloader.service';
+import {Component, OnInit} from '@angular/core';
+import {PreloaderService} from '../../shared/services/preloader/preloader.service';
 
 @Component({
   selector: 'app-preloader',
@@ -7,14 +7,7 @@ import {PreloaderService} from '../../preloader.service';
   styleUrls: ['./preloader.component.scss'],
 })
 export class PreloaderComponent implements OnInit {
-  @Input() loading = false;
-  @Input() httploading = false;
-
   constructor(public preloaderService: PreloaderService) {}
 
   ngOnInit(): void {}
-
-  ngOnChanges(changes: SimpleChange): void {
-    console.log(changes);
-  }
 }

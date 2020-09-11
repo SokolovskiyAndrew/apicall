@@ -6,10 +6,6 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'apicall';
-  name: string;
-  // isLoaded = false;
-  // ishttpLoaded = false;
 
   constructor() {}
 }

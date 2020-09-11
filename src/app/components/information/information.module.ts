@@ -5,8 +5,8 @@ import {DxDataGridModule, DxLoadIndicatorModule} from 'devextreme-angular';
 
 import {InformationComponent} from './information.component';
 import {InformationRoutingModule} from './information-routing.module';
-import {InfoService} from './info.service';
-import {InfoInterceptor} from './info.interceptor';
+import {InfoService} from '../../shared/services/info/info.service';
+import {InfoInterceptor} from '../../shared/services/info/info.interceptor';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
