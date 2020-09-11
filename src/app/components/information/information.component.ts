@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Currency, InfoService} from './info.service';
 import {delay} from 'rxjs/operators';
-import {PreloaderService} from '../../preloader.service';
+
+import {InfoService} from '../../shared/services/info/info.service';
+import {PreloaderService} from '../../shared/services/preloader/preloader.service';
+import {Currency} from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-information',
@@ -11,7 +13,7 @@ import {PreloaderService} from '../../preloader.service';
 export class InformationComponent implements OnInit {
   currencies: Currency[] = [];
   preloader: boolean;
-  ishttpLoaded = false;
+  isHttpLoaded = false;
 
   constructor(
     private infoService: InfoService,
