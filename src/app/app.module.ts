@@ -1,17 +1,17 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {CoreModule} from './core/core.module';
 import {HomeComponent} from './components/home/home.component';
-import {PreloaderComponent} from './components/preloader/preloader.component';
-import {DxLoadIndicatorModule} from 'devextreme-angular';
-import {PreloaderService} from './shared/services/preloader/preloader.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, PreloaderComponent],
-  imports: [BrowserModule, AppRoutingModule, DxLoadIndicatorModule],
-  providers: [PreloaderService],
+  declarations: [AppComponent, HomeComponent],
+  imports: [
+    AppRoutingModule,
+    CoreModule
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

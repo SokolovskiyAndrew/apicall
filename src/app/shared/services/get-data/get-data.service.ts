@@ -7,7 +7,7 @@ import {Currency} from '../../interfaces/interfaces';
 @Injectable({
   providedIn: 'root',
 })
-export class InfoService {
+export class GetDataService {
   constructor(private http: HttpClient) {}
 
   getApi(): Observable<Currency[]> {

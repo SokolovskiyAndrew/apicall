@@ -1,12 +1,12 @@
 import {NgModule, Provider} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {DxDataGridModule, DxLoadIndicatorModule} from 'devextreme-angular';
+import {DxDataGridModule} from 'devextreme-angular';
 
 import {InformationComponent} from './information.component';
 import {InformationRoutingModule} from './information-routing.module';
-import {InfoService} from '../../shared/services/info/info.service';
-import {InfoInterceptor} from '../../shared/services/info/info.interceptor';
+import {InfoInterceptor} from '../../shared/interceptors/info.interceptor';
+import {GetDataService} from '../../shared/services/get-data/get-data.service';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -20,9 +20,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     CommonModule,
     InformationRoutingModule,
     HttpClientModule,
-    DxLoadIndicatorModule,
     DxDataGridModule,
   ],
-  providers: [InfoService, INTERCEPTOR_PROVIDER],
+  providers: [GetDataService, INTERCEPTOR_PROVIDER],
 })
 export class InformationModule {}
