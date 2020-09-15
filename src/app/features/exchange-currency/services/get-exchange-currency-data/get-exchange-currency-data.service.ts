@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {Currency} from '../../../shared/interfaces/interfaces';
+import {Currency} from '../../../../share-files/interfaces/interfaces';
 
 @Injectable()
-export class GetDataService {
+export class GetExchangeCurrencyDataService {
   constructor(private http: HttpClient) {}
 
   getApi(): Observable<Currency[]> {

@@ -1,17 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {PreloaderModule} from './preloader/preloader.module';
-import {PreloaderComponent} from './preloader/components/preloader/preloader.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    PreloaderModule
-  ],
-  exports: [
-    PreloaderComponent
-  ]
+  imports: [CommonModule],
+  exports: [],
 })
-export class SharedModule { }
+export class SharedModule {}

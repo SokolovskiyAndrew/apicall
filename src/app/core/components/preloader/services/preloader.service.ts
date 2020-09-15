@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 
-@Injectable(
-)
+@Injectable()
 export class PreloaderService {
   public showSpinner = false;
 
