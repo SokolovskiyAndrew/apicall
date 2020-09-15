@@ -7,8 +7,8 @@ const routes: Routes = [
   {
     path: 'info',
     loadChildren: () =>
-      import('./core/components/information/information.module').then(
-        (m) => m.InformationModule
+      import('./features/exchange-currency/exchange-currency.module').then(
+        (m) => m.ExchangeCurrencyModule
       ),
   },
 ];

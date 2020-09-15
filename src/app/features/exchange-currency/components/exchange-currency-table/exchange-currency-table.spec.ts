@@ -1,19 +1,19 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {InformationComponent} from './information.component';
+import {ExchangeCurrencyTableComponent} from './exchange-currency-table.component';
 
 describe('InformationComponent', () => {
-  let component: InformationComponent;
-  let fixture: ComponentFixture<InformationComponent>;
+  let component: ExchangeCurrencyTableComponent;
+  let fixture: ComponentFixture<ExchangeCurrencyTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InformationComponent],
+      declarations: [ExchangeCurrencyTableComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InformationComponent);
+    fixture = TestBed.createComponent(ExchangeCurrencyTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
