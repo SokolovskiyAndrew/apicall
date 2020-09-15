@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {delay} from 'rxjs/operators';
 
-import {InfoService} from '../../shared/services/info/info.service';
-import {PreloaderService} from '../../shared/services/preloader/preloader.service';
-import {Currency} from '../../shared/interfaces/interfaces';
+import {PreloaderService} from '../../../shared/preloader/services/preloader.service';
+import {Currency} from '../../../shared/interfaces/interfaces';
+import {GetDataService} from '../../services/get-data/get-data.service';
 
 @Component({
   selector: 'app-information',
@@ -16,14 +16,14 @@ export class InformationComponent implements OnInit {
   isHttpLoaded = false;
 
   constructor(
-    private infoService: InfoService,
+    private getDataService: GetDataService,
     public spinner: PreloaderService
   ) {}
 
   ngOnInit(): void {
     this.spinner.showLoadingSpinner();
 
-    this.infoService
+    this.getDataService
       .getApi()
       .pipe(delay(800))
       .subscribe((data) => {

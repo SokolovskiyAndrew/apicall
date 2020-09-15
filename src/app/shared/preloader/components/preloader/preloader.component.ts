@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PreloaderService} from '../../shared/services/preloader/preloader.service';
+import {PreloaderService} from '../../services/preloader.service';
 
 @Component({
   selector: 'app-preloader',
