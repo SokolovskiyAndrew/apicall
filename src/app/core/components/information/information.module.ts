@@ -5,12 +5,12 @@ import {DxDataGridModule} from 'devextreme-angular';
 
 import {InformationComponent} from './information.component';
 import {InformationRoutingModule} from './information-routing.module';
-import {InfoInterceptor} from '../../shared/interceptors/info.interceptor';
-import {GetDataService} from '../../shared/services/get-data/get-data.service';
+import {GetInfoInterceptor} from '../../interceptors/get-info.interceptor';
+import {GetDataService} from '../../services/get-data/get-data.service';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
-  useClass: InfoInterceptor,
+  useClass: GetInfoInterceptor,
   multi: true,
 };
 

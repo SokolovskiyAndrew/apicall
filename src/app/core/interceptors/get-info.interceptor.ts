@@ -6,7 +6,7 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-export class InfoInterceptor implements HttpInterceptor {
+export class GetInfoInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler

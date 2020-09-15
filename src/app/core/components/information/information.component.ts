@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {delay} from 'rxjs/operators';
 
-import {PreloaderService} from '../../preloader/services/preloader.service';
-import {Currency} from '../../shared/interfaces/interfaces';
-import {GetDataService} from '../../shared/services/get-data/get-data.service';
+import {PreloaderService} from '../../../shared/preloader/services/preloader.service';
+import {Currency} from '../../../shared/interfaces/interfaces';
+import {GetDataService} from '../../services/get-data/get-data.service';
 
 @Component({
   selector: 'app-information',

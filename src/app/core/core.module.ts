@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
-import {PreloaderModule} from '../preloader/preloader.module';
-import {PreloaderComponent} from '../preloader/components/preloader/preloader.component';
+import {GetDataService} from './services/get-data/get-data.service';
+import {HomeComponent} from './components/home/home.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    // HomeComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    PreloaderModule
-  ],
-  exports: [
-    PreloaderComponent
+    RouterModule
   ],
   providers: [
+    GetDataService
+  ],
+  exports: [
+    HomeComponent
   ]
 })
 export class CoreModule { }
