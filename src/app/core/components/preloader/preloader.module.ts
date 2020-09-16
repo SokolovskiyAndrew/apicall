@@ -8,6 +8,6 @@ import {DxLoadIndicatorModule} from 'devextreme-angular';
   declarations: [PreloaderComponent],
   imports: [CommonModule, DxLoadIndicatorModule],
   exports: [PreloaderComponent],
-  providers: [PreloaderService]
+  providers: [PreloaderService],
 })
 export class PreloaderModule {}

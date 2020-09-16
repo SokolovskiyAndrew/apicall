@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {delay} from 'rxjs/operators';
 
 import {PreloaderService} from '../../../../core/components/preloader/services/preloader.service';
-import {Currency} from '../../../../share-files/interfaces/interfaces';
+import {Currency} from '../../../../share-files/interfaces/currency.interface';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
 
 @Component({
@@ -13,7 +13,6 @@ import {GetExchangeCurrencyDataService} from '../../services/get-exchange-curren
 export class ExchangeCurrencyTableComponent implements OnInit {
   currencies: Currency[] = [];
   preloader: boolean;
-  isHttpLoaded = false;
 
   constructor(
     private getDataService: GetExchangeCurrencyDataService,

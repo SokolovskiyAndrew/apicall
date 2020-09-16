@@ -5,7 +5,7 @@ import {HomeComponent} from './core/components/home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {
-    path: 'info',
+    path: 'currency-exchange',
     loadChildren: () =>
       import('./features/exchange-currency/exchange-currency.module').then(
         (m) => m.ExchangeCurrencyModule

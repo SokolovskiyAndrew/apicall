@@ -1,9 +1,7 @@
-<app-exchange-currency-dropdown></app-exchange-currency-dropdown>
-<app-exchange-currency-input></app-exchange-currency-input>
-<div
-  class="container"
-  *ngIf="!spinner.showSpinner"
->
+<div class="container" *ngIf="!spinner.showSpinner">
+  <app-exchange-currency-dropdown></app-exchange-currency-dropdown>
+  <app-exchange-currency-input></app-exchange-currency-input>
+
   <dx-data-grid
     id="gridContainer"
     [dataSource]="currencies"
@@ -17,32 +15,14 @@
     <dxo-pager
       [showPageSizeSelector]="true"
       [allowedPageSizes]="[10, 20]"
-      [showInfo]="true">
+      [showInfo]="true"
+    >
     </dxo-pager>
 
-    <dxi-column
-      dataField="cc"
-      caption="Acronym"
-
-    >Text</dxi-column>
-    <dxi-column
-      dataField="exchangedate"
-      caption="Date"
-    ></dxi-column>
-    <dxi-column
-      dataField="r030"
-      caption="Amount"
-      alignment="left"
-    ></dxi-column>
-    <dxi-column
-      dataField="rate"
-      caption="Rate"
-      alignment="left"
-    ></dxi-column>
-    <dxi-column
-      dataField="txt"
-      caption="Title"
-    ></dxi-column>
+    <dxi-column dataField="cc" caption="Acronym">Text</dxi-column>
+    <dxi-column dataField="exchangedate" caption="Date"></dxi-column>
+    <dxi-column dataField="r030" caption="Amount" alignment="left"></dxi-column>
+    <dxi-column dataField="rate" caption="Rate" alignment="left"></dxi-column>
+    <dxi-column dataField="txt" caption="Title"></dxi-column>
   </dx-data-grid>
 </div>
-
