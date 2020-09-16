@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+// import {HttpClientModule} from '@angular/common/http';
 import {DxDataGridModule} from 'devextreme-angular';
 
 import {ExchangeCurrencyTableComponent} from './components/exchange-currency-table/exchange-currency-table.component';
@@ -9,19 +9,13 @@ import {GetExchangeCurrencyDataService} from './services/get-exchange-currency-d
 import {ExchangeCurrencyDropdownComponent} from './components/exchange-currency-dropdown/exchange-currency-dropdown.component';
 import {ExchangeCurrencyInputComponent} from './components/exchange-currency-input/exchange-currency-input.component';
 
-
 @NgModule({
   declarations: [
     ExchangeCurrencyDropdownComponent,
     ExchangeCurrencyTableComponent,
     ExchangeCurrencyInputComponent,
   ],
-  imports: [
-    CommonModule,
-    ExchangeCurrencyRoutingModule,
-    HttpClientModule,
-    DxDataGridModule,
-  ],
+  imports: [CommonModule, ExchangeCurrencyRoutingModule, DxDataGridModule],
   providers: [GetExchangeCurrencyDataService],
 })
 export class ExchangeCurrencyModule {}

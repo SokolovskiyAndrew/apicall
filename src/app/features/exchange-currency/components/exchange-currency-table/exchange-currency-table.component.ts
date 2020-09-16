@@ -24,14 +24,14 @@ export class ExchangeCurrencyTableComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.spinner.showLoadingSpinner();
+    // this.spinner.showLoadingSpinner();
 
     this.getDataService
       .getApi()
-      .pipe(delay(800))
+      // .pipe(delay(800))
       .subscribe((data) => {
         if (data) {
-          this.spinner.hideLoadingSpinner();
+          // this.spinner.hideLoadingSpinner();
         }
         this.currencies = data;
       });

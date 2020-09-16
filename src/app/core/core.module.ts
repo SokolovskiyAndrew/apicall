@@ -2,7 +2,7 @@ import {NgModule, Provider} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {PreloaderModule} from './components/preloader/preloader.module';
 import {HomeComponent} from './components/home/home.component';
@@ -16,8 +16,14 @@ const INTERCEPTOR_PROVIDER: Provider = {
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [BrowserModule, CommonModule, RouterModule, PreloaderModule],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    RouterModule,
+    PreloaderModule,
+    HttpClientModule,
+  ],
   exports: [HomeComponent],
-  providers: [INTERCEPTOR_PROVIDER]
+  providers: [INTERCEPTOR_PROVIDER],
 })
 export class CoreModule {}
