@@ -18,6 +18,6 @@ const INTERCEPTOR_PROVIDER: Provider = {
   declarations: [HomeComponent],
   imports: [BrowserModule, CommonModule, RouterModule, PreloaderModule],
   exports: [HomeComponent],
-  providers: [INTERCEPTOR_PROVIDER],
+  providers: [INTERCEPTOR_PROVIDER]
 })
 export class CoreModule {}
