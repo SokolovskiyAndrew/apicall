@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
-import {Currency} from '../../../../share-files/interfaces/interfaces';
+import {Currency} from '../../../../share-files/interfaces/currency.interface';
 
 @Component({
   selector: 'app-exchange-currency-dropdown',
   templateUrl: './exchange-currency-dropdown.component.html',
-  styleUrls: ['./exchange-currency-dropdown.component.scss']
+  styleUrls: ['./exchange-currency-dropdown.component.scss'],
 })
 export class ExchangeCurrencyDropdownComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

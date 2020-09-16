@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ExchangeCurrencyDropdownComponent } from './exchange-currency-dropdown.component';
+import {ExchangeCurrencyDropdownComponent} from './exchange-currency-dropdown.component';
 
 describe('ExchangeCurrencyDropdownComponent', () => {
   let component: ExchangeCurrencyDropdownComponent;
@@ -8,9 +8,8 @@ describe('ExchangeCurrencyDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExchangeCurrencyDropdownComponent ]
-    })
-    .compileComponents();
+      declarations: [ExchangeCurrencyDropdownComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
