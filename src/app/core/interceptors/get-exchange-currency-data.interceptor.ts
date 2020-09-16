@@ -6,6 +6,7 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
 
+
 export class GetExchangeCurrencyDataInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,

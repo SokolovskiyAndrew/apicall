@@ -20,14 +20,20 @@ export class ExchangeCurrencyTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData(): void {
     this.spinner.showLoadingSpinner();
 
     this.getDataService
       .getApi()
       .pipe(delay(800))
       .subscribe((data) => {
+        if (data) {
+          this.spinner.hideLoadingSpinner();
+        }
         this.currencies = data;
-        this.spinner.hideLoadingSpinner();
       });
   }
 }
