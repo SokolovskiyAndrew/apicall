@@ -1,16 +1,17 @@
 import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class PreloaderService {
-  public showSpinner = false;
+  // public showSpinner = false;
+  isLoading = new Subject<boolean>();
 
   constructor() {}
 
   showLoadingSpinner(): void {
-    this.showSpinner = true;
+    this.isLoading.next(true);
   }
-
   hideLoadingSpinner(): void {
-    this.showSpinner = false;
+    this.isLoading.next(false);
   }
 }
