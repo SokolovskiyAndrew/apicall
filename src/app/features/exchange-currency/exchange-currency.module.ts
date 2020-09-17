@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-// import {HttpClientModule} from '@angular/common/http';
-import {DxDataGridModule, DxDropDownBoxModule} from 'devextreme-angular';
+import {DxDataGridModule, DxSelectBoxModule} from 'devextreme-angular';
 
 import {ExchangeCurrencyTableComponent} from './components/exchange-currency-table/exchange-currency-table.component';
 import {ExchangeCurrencyRoutingModule} from './exchange-currency-routing.module';
@@ -19,7 +18,7 @@ import {ExchangeCurrencyInputComponent} from './components/exchange-currency-inp
     CommonModule,
     ExchangeCurrencyRoutingModule,
     DxDataGridModule,
-    DxDropDownBoxModule,
+    DxSelectBoxModule
   ],
   providers: [GetExchangeCurrencyDataService],
 })
