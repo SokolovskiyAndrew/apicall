@@ -10,7 +10,7 @@ import {Injectable} from '@angular/core';
 import {finalize} from 'rxjs/operators';
 
 @Injectable()
-export class GetExchangeCurrencyDataInterceptor implements HttpInterceptor {
+export class LoadingSpinnerInterceptor implements HttpInterceptor {
   constructor(public spinner: PreloaderService) {}
 
   intercept(

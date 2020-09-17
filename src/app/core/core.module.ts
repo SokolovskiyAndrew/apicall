@@ -6,11 +6,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {PreloaderModule} from './components/preloader/preloader.module';
 import {HomeComponent} from './components/home/home.component';
-import {GetExchangeCurrencyDataInterceptor} from './interceptors/get-exchange-currency-data.interceptor';
+import {LoadingSpinnerInterceptor} from './interceptors/loading-spinner.interceptor';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
-  useClass: GetExchangeCurrencyDataInterceptor,
+  useClass: LoadingSpinnerInterceptor,
   multi: true,
 };
 
