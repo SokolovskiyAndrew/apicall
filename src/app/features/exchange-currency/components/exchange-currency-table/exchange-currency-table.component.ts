@@ -1,7 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {delay} from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
 
-import {PreloaderService} from '../../../../core/components/preloader/services/preloader.service';
 import {Currency} from '../../../../share-files/interfaces/currency.interface';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
 
@@ -12,28 +10,16 @@ import {GetExchangeCurrencyDataService} from '../../services/get-exchange-curren
 })
 export class ExchangeCurrencyTableComponent implements OnInit {
   currencies: Currency[] = [];
-  preloader: boolean;
 
-  constructor(
-    private getDataService: GetExchangeCurrencyDataService,
-    public spinner: PreloaderService
-  ) {}
+  constructor(private getDataService: GetExchangeCurrencyDataService) {}
 
   ngOnInit(): void {
     this.fetchData();
   }
 
   fetchData(): void {
-    // this.spinner.showLoadingSpinner();
-
-    this.getDataService
-      .getApi()
-      // .pipe(delay(800))
-      .subscribe((data) => {
-        if (data) {
-          // this.spinner.hideLoadingSpinner();
-        }
-        this.currencies = data;
-      });
+    this.getDataService.getApi().subscribe((data) => {
+      this.currencies = data;
+    });
   }
 }

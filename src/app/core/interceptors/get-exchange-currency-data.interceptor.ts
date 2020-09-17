@@ -7,11 +7,10 @@ import {
 import {Observable} from 'rxjs';
 import {PreloaderService} from '../components/preloader/services/preloader.service';
 import {Injectable} from '@angular/core';
-import {delay, finalize, tap} from 'rxjs/operators';
+import {finalize} from 'rxjs/operators';
 
 @Injectable()
 export class GetExchangeCurrencyDataInterceptor implements HttpInterceptor {
-
   constructor(public spinner: PreloaderService) {}
 
   intercept(
@@ -27,12 +26,10 @@ export class GetExchangeCurrencyDataInterceptor implements HttpInterceptor {
     }
 
     const cloned = req.clone();
-    return next.handle(cloned)
-      .pipe(
-        delay(300),
-        finalize(() => {
-          this.spinner.hideLoadingSpinner();
-        })
-      );
+    return next.handle(cloned).pipe(
+      finalize(() => {
+        this.spinner.hideLoadingSpinner();
+      })
+    );
   }
 }

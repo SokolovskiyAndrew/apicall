@@ -1,5 +1,5 @@
 <dx-load-indicator
-  *ngIf="preloaderService.showSpinner"
+  *ngIf="preloaderService.isLoading | async"
   class="preloader"
   id="large-indicator"
   height="60"
