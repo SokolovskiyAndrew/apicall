@@ -15,21 +15,24 @@
     #secondCurrencySelector
   ></dx-select-box>
 </div>
-<app-exchange-currency-choose-amount #amountExchange></app-exchange-currency-choose-amount>
+<app-exchange-currency-choose-amount
+  #amountExchange
+></app-exchange-currency-choose-amount>
 <dx-button
   stylingMode="contained"
   text="Get result"
   type="success"
   [width]="120"
-  (click)="calculationService.
-  calculateExchangeCurrency(
-    firstCurrencySelector.value.rate,
-    secondCurrencySelector.value,
-    amountExchange.amount
-  )"
+  (click)="
+    calculationService.calculateExchangeCurrency(
+      firstCurrencySelector.value.rate,
+      secondCurrencySelector.value,
+      amountExchange.amount
+    )
+  "
 >
 </dx-button>
-<h2>You'll receive
-  <span *ngIf="result">{{result}}</span>
+<h2>
+  You'll receive
+  <span *ngIf="result">{{ result }}</span>
 </h2>
-

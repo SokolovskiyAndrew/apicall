@@ -6,17 +6,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./exchange-currency-choose-amount.component.scss'],
 })
 export class ExchangeCurrencyInputComponent implements OnInit {
-  amountArray: number[]
-  amount: number
+  amountArray: number[];
+  amount: number;
 
   constructor() {}
 
   ngOnInit(): void {
     this.amountArray = [10, 100, 1000];
-    this.amount = this.amountArray[0]
+    this.amount = this.amountArray[0];
   }
 
-  getValueOnClick(event): number{
-    return this.amount = event
+  getValueOnClick(event): number {
+    return (this.amount = event);
   }
 }

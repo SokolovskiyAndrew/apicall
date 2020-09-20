@@ -12,7 +12,7 @@ import {CalculationCurrencyService} from '../../services/calculation-currency/ca
 export class ExchangeCurrencyDropdownComponent implements OnInit, DoCheck {
   currencies: Currency[] = [];
   data: any;
-  result: number | string
+  result: number | string;
 
   constructor(
     private getDataService: GetExchangeCurrencyDataService,
@@ -20,22 +20,20 @@ export class ExchangeCurrencyDropdownComponent implements OnInit, DoCheck {
   ) {}
 
   ngOnInit(): void {
-    this.fetchData()
+    this.fetchData();
   }
 
   ngDoCheck(): void {
-    this.result = this.calculationService.result
+    this.result = this.calculationService.result;
   }
 
   fetchData(): void {
-    this.getDataService
-      .getApi()
-      .subscribe((response) => {
-        this.currencies = response;
-        this.data = new ArrayStore({
-          data: this.currencies,
-          key: 'rate'
-        });
+    this.getDataService.getApi().subscribe((response) => {
+      this.currencies = response;
+      this.data = new ArrayStore({
+        data: this.currencies,
+        key: 'rate',
       });
+    });
   }
 }

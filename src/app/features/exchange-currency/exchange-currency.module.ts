@@ -1,6 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DxButtonModule, DxDataGridModule, DxRadioGroupModule, DxSelectBoxModule} from 'devextreme-angular';
+import {
+  DxButtonModule,
+  DxDataGridModule,
+  DxRadioGroupModule,
+  DxSelectBoxModule,
+} from 'devextreme-angular';
 
 import {ExchangeCurrencyTableComponent} from './components/exchange-currency-table/exchange-currency-table.component';
 import {ExchangeCurrencyRoutingModule} from './exchange-currency-routing.module';
@@ -23,11 +28,8 @@ import {FormsModule} from '@angular/forms';
     DxSelectBoxModule,
     DxRadioGroupModule,
     DxButtonModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [
-    GetExchangeCurrencyDataService,
-    CalculationCurrencyService
-  ],
+  providers: [GetExchangeCurrencyDataService, CalculationCurrencyService],
 })
 export class ExchangeCurrencyModule {}
