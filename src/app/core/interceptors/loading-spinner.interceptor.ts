@@ -7,7 +7,7 @@ import {
 import {Observable} from 'rxjs';
 import {PreloaderService} from '../components/preloader/services/preloader.service';
 import {Injectable} from '@angular/core';
-import {finalize} from 'rxjs/operators';
+import {delay, finalize} from 'rxjs/operators';
 
 @Injectable()
 export class LoadingSpinnerInterceptor implements HttpInterceptor {
@@ -27,6 +27,7 @@ export class LoadingSpinnerInterceptor implements HttpInterceptor {
 
     const cloned = req.clone();
     return next.handle(cloned).pipe(
+      delay(1000),
       finalize(() => {
         this.spinner.hideLoadingSpinner();
       })

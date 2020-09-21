@@ -14,12 +14,14 @@ import {ExchangeCurrencyDropdownComponent} from './components/exchange-currency-
 import {ExchangeCurrencyInputComponent} from './components/exchange-currency-choose-amount/exchange-currency-input.component';
 import {CalculationCurrencyService} from './services/calculation-currency/calculation-currency.service';
 import {FormsModule} from '@angular/forms';
+import { ExchangeCurrencyComponent } from './components/exchange-currency/exchange-currency.component';
 
 @NgModule({
   declarations: [
     ExchangeCurrencyDropdownComponent,
     ExchangeCurrencyTableComponent,
     ExchangeCurrencyInputComponent,
+    ExchangeCurrencyComponent,
   ],
   imports: [
     CommonModule,

@@ -8,14 +8,14 @@ export class CalculationCurrencyService {
   calculateExchangeCurrency(
     firstSelector,
     secondSelector,
-    input
+    amount
   ): number | string {
     this.result = (
-      (input * input * firstSelector) /
-      (input * secondSelector)
+      (amount * amount * firstSelector) /
+      (amount * secondSelector)
     ).toFixed(2);
     console.log(
-      `first ${firstSelector} second ${secondSelector} input ${input}`
+      `first ${firstSelector} second ${secondSelector} amount ${amount}`
     );
     return this.result + secondSelector;
   }

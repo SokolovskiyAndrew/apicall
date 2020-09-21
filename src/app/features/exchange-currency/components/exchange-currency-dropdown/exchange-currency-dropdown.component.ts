@@ -28,7 +28,8 @@ export class ExchangeCurrencyDropdownComponent implements OnInit, DoCheck {
   }
 
   fetchData(): void {
-    this.getDataService.getApi().subscribe((response) => {
+    this.getDataService.getApi()
+      .subscribe((response) => {
       this.currencies = response;
       this.data = new ArrayStore({
         data: this.currencies,

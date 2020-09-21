@@ -9,10 +9,9 @@
   <dx-select-box
     [dataSource]="data"
     displayExpr="txt"
-    valueExpr="rate"
-    width="300"
     [value]="currencies[1]"
     #secondCurrencySelector
+    width="300"
   ></dx-select-box>
 </div>
 <app-exchange-currency-choose-amount
@@ -26,7 +25,7 @@
   (click)="
     calculationService.calculateExchangeCurrency(
       firstCurrencySelector.value.rate,
-      secondCurrencySelector.value,
+      secondCurrencySelector.value.rate,
       amountExchange.amount
     )
   "
