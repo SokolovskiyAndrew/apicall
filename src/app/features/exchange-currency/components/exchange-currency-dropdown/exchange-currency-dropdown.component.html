@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container" >
   <dx-select-box
     [dataSource]="data"
     displayExpr="txt"
     valueExpr="rate"
+    [placeholder]="currencies[0].txt"
     width="300"
     (valueChange)="selectFirstValue($event)"
   ></dx-select-box>
@@ -10,6 +11,7 @@
     [dataSource]="data"
     displayExpr="txt"
     valueExpr="rate"
+    [placeholder]="currencies[1].txt"
     width="300"
     (valueChange)="selectSecondValue($event)"
   ></dx-select-box>
@@ -27,7 +29,7 @@
 </dx-button>
 <h2>
   You'll receive:
-  <span *ngIf="isNumber(result); else validationError">{{ result }}</span>
+  <span *ngIf="checkSummaryType(result); else validationError">{{ result }}</span>
 </h2>
 <ng-template #validationError>
   <h4 class="validation-error">{{ result }}</h4>

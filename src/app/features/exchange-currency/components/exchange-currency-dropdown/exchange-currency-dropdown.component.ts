@@ -56,7 +56,7 @@ export class ExchangeCurrencyDropdownComponent implements OnInit, OnChanges {
     console.log(typeof this.result);
   }
 
-  isNumber(value): any {
+  checkSummaryType(value): any {
     return typeof value === 'number';
   }
 }
