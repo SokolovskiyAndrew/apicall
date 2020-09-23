@@ -1,13 +1,9 @@
 <div class="container">
-
   <dx-data-grid
     id="gridContainer"
     [dataSource]="currencies"
     [showBorders]="true"
     [showRowLines]="true"
-    [editing]="{
-      allowAdding: true
-    }"
   >
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager

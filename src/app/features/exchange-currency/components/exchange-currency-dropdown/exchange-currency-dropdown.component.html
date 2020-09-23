@@ -2,36 +2,33 @@
   <dx-select-box
     [dataSource]="data"
     displayExpr="txt"
-    [value]="currencies[0]"
-    #firstCurrencySelector
+    valueExpr="rate"
     width="300"
+    (valueChange)="selectFirstValue($event)"
   ></dx-select-box>
   <dx-select-box
     [dataSource]="data"
     displayExpr="txt"
-    [value]="currencies[1]"
-    #secondCurrencySelector
+    valueExpr="rate"
     width="300"
+    (valueChange)="selectSecondValue($event)"
   ></dx-select-box>
 </div>
 <app-exchange-currency-choose-amount
-  #amountExchange
+  (amountValue)="getAmountValue($event.value)"
 ></app-exchange-currency-choose-amount>
 <dx-button
   stylingMode="contained"
   text="Get result"
   type="success"
   [width]="120"
-  (click)="
-    calculationService.calculateExchangeCurrency(
-      firstCurrencySelector.value.rate,
-      secondCurrencySelector.value.rate,
-      amountExchange.amount
-    )
-  "
+  (onClick)="getCalculationResult()"
 >
 </dx-button>
 <h2>
-  You'll receive
-  <span *ngIf="result">{{ result }}</span>
+  You'll receive:
+  <span *ngIf="isNumber(result); else validationError">{{ result }}</span>
 </h2>
+<ng-template #validationError>
+  <h4 class="validation-error">{{ result }}</h4>
+</ng-template>

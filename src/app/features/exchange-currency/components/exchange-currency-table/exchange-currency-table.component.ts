@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, OnInit} from '@angular/core';
 
 import {Currency} from '../../../../share-files/interfaces/currency.interface';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
@@ -9,17 +9,9 @@ import {GetExchangeCurrencyDataService} from '../../services/get-exchange-curren
   styleUrls: ['./exchange-currency-table.component.scss'],
 })
 export class ExchangeCurrencyTableComponent implements OnInit {
-  currencies: Currency[] = [];
+  @Input() currencies;
 
-  constructor(private getDataService: GetExchangeCurrencyDataService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.fetchData();
-  }
-
-  fetchData(): void {
-    this.getDataService.getApi().subscribe((data) => {
-      this.currencies = data;
-    });
-  }
+  ngOnInit(): void {}
 }

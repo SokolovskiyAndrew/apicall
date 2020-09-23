@@ -27,7 +27,7 @@ export class LoadingSpinnerInterceptor implements HttpInterceptor {
 
     const cloned = req.clone();
     return next.handle(cloned).pipe(
-      delay(1000),
+      // delay(1000),
       finalize(() => {
         this.spinner.hideLoadingSpinner();
       })

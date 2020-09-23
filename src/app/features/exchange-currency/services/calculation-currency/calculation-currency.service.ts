@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CalculationCurrencyService {
-  result: number | string;
   constructor() {}
 
   calculateExchangeCurrency(
@@ -10,13 +9,19 @@ export class CalculationCurrencyService {
     secondSelector,
     amount
   ): number | string {
-    this.result = (
-      (amount * amount * firstSelector) /
-      (amount * secondSelector)
-    ).toFixed(2);
-    console.log(
-      `first ${firstSelector} second ${secondSelector} amount ${amount}`
-    );
-    return this.result + secondSelector;
+    let result;
+    if (!firstSelector && !secondSelector) {
+      return (result = 'Please, select currencies');
+    } else if (!firstSelector || !secondSelector) {
+      return (result = 'Please, select both currencies');
+    } else {
+      result = parseFloat(
+        (amount * (firstSelector / secondSelector)).toFixed(2)
+      );
+      console.log(
+        `First ${firstSelector} second ${secondSelector} amount ${amount}`
+      );
+      return result;
+    }
   }
 }

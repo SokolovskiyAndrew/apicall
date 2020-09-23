@@ -1,19 +1,19 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ExchangeCurrencyInputComponent} from './exchange-currency-input.component';
+import {ExchangeCurrencyChooseAmountComponent} from './exchange-currency-choose-amount.component';
 
 describe('ExchangeCurrencyInputComponent', () => {
-  let component: ExchangeCurrencyInputComponent;
-  let fixture: ComponentFixture<ExchangeCurrencyInputComponent>;
+  let component: ExchangeCurrencyChooseAmountComponent;
+  let fixture: ComponentFixture<ExchangeCurrencyChooseAmountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ExchangeCurrencyInputComponent],
+      declarations: [ExchangeCurrencyChooseAmountComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExchangeCurrencyInputComponent);
+    fixture = TestBed.createComponent(ExchangeCurrencyChooseAmountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,7 +1,7 @@
 export interface Currency {
-  currencyExcerpt: string;
-  exchangeDate: string;
-  id?: number;
+  cc: string;
+  exchangedate: string;
+  r030: number;
   rate: number;
-  text: string;
+  txt: string;
 }
