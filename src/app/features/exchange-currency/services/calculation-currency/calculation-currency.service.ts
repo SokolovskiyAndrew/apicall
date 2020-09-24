@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CalculationCurrencyService {
+  constructor() {}
 
-  constructor() { }
+  calculateExchangeCurrency(firstSelector, secondSelector, amount): number {
+    if (firstSelector && secondSelector) {
+      const result = parseFloat(
+        (amount * (firstSelector / secondSelector)).toFixed(2)
+      );
+      return result;
+    }
+  }
 }

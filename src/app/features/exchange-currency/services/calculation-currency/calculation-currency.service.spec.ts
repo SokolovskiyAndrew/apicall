@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { CalculationCurrencyService } from './calculation-currency.service';
+import {CalculationCurrencyService} from './calculation-currency.service';
 
 describe('CalculationCurrencyService', () => {
   let service: CalculationCurrencyService;

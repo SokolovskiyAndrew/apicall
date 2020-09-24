@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
-import {map} from 'rxjs/operators';
-import {Currency} from '../../../../share-files/interfaces/currency.interface';
+import {Component, Input, OnInit} from '@angular/core';
 import ArrayStore from 'devextreme/data/array_store';
+import {CalculationCurrencyService} from '../../services/calculation-currency/calculation-currency.service';
+import {Currency} from '../../../../share-files/interfaces/currency.interface';
 
 @Component({
   selector: 'app-exchange-currency-dropdown',
@@ -10,26 +9,57 @@ import ArrayStore from 'devextreme/data/array_store';
   styleUrls: ['./exchange-currency-dropdown.component.scss'],
 })
 export class ExchangeCurrencyDropdownComponent implements OnInit {
-  currencies: Currency[] = []
-  data: any
+  @Input() currencies: Currency[];
+  data: object;
+  result: number;
+  amountValue = 10;
+  firstSelectCurrencyValue: number;
+  secondSelectCurrencyValue: number;
+  validationError: string;
 
-  constructor(private getDataService: GetExchangeCurrencyDataService) {}
+  constructor(private calculationService: CalculationCurrencyService) {}
 
   ngOnInit(): void {
-  this.getDataService.getApi()
-    .pipe(
-      // map(el => console.log(el))
-    )
-    .subscribe(response => {
-      this.currencies = response;
-      this.data = new ArrayStore({
-        data: this.currencies,
-      });
-    })
+    this.data = new ArrayStore({
+      data: this.currencies,
+      key: 'rate',
+    });
   }
 
-  click(e): void {
-    console.log(e.itemData.rate)
+  getAmountValue(value): void {
+    this.amountValue = value;
+    console.log(this.amountValue);
   }
 
+  selectFirstValue(firstValue): void {
+    this.firstSelectCurrencyValue = firstValue;
+    console.log(this.firstSelectCurrencyValue);
+  }
+
+  selectSecondValue(secondValue): void {
+    this.secondSelectCurrencyValue = secondValue;
+    console.log(this.secondSelectCurrencyValue);
+  }
+
+  getCalculationResult(): void {
+    this.result = this.calculationService.calculateExchangeCurrency(
+      this.firstSelectCurrencyValue,
+      this.secondSelectCurrencyValue,
+      this.amountValue
+    );
+    this.selectCurrenciesValidation();
+  }
+
+  selectCurrenciesValidation(): void {
+    if (!this.firstSelectCurrencyValue && !this.secondSelectCurrencyValue) {
+      this.validationError = 'Please, select currencies';
+    } else if (
+      !this.firstSelectCurrencyValue ||
+      !this.secondSelectCurrencyValue
+    ) {
+      this.validationError = 'Please, select both currencies';
+    } else {
+      this.validationError = '';
+    }
+  }
 }

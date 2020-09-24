@@ -7,7 +7,7 @@ import {Currency} from '../../../../share-files/interfaces/currency.interface';
 export class GetExchangeCurrencyDataService {
   constructor(private http: HttpClient) {}
 
-  getApi(): Observable<Currency[]> {
+  getCurrencyData(): Observable<Currency[]> {
     return this.http.get<Currency[]>(
       'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json'
     );
