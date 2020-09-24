@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Currency} from '../../../../share-files/interfaces/currency.interface';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-exchange-currency',
@@ -8,7 +9,7 @@ import {GetExchangeCurrencyDataService} from '../../services/get-exchange-curren
   styleUrls: ['./exchange-currency.component.scss'],
 })
 export class ExchangeCurrencyComponent implements OnInit {
-  currencies: Currency[];
+  currencies: Observable<Currency[]>;
 
   constructor(private getDataService: GetExchangeCurrencyDataService) {}
 
@@ -17,8 +18,6 @@ export class ExchangeCurrencyComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.getDataService.getCurrencyData().subscribe((data) => {
-      this.currencies = data;
-    });
+    this.currencies = this.getDataService.getCurrencyData();
   }
 }
