@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ExchangeCurrencyDropdownComponent} from './exchange-currency-dropdown.component';
+import {CalculationCurrencyService} from '../../services/calculation-currency/calculation-currency.service';
 
 describe('ExchangeCurrencyDropdownComponent', () => {
   let component: ExchangeCurrencyDropdownComponent;
@@ -9,6 +10,7 @@ describe('ExchangeCurrencyDropdownComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ExchangeCurrencyDropdownComponent],
+      providers: [CalculationCurrencyService]
     }).compileComponents();
   });
 
@@ -18,7 +20,8 @@ describe('ExchangeCurrencyDropdownComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create',   () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

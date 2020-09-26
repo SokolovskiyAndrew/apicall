@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PreloaderComponent} from './preloader.component';
+import {PreloaderService} from '../../services/preloader.service';
 
 describe('PreloaderComponent', () => {
   let component: PreloaderComponent;
@@ -9,6 +10,7 @@ describe('PreloaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PreloaderComponent],
+      providers: [PreloaderService]
     }).compileComponents();
   });
 

@@ -6,11 +6,14 @@ describe('CalculationCurrencyService', () => {
   let service: CalculationCurrencyService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [CalculationCurrencyService]
+    });
     service = TestBed.inject(CalculationCurrencyService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+    console.log(service.calculateExchangeCurrency(3, 2, 7))
   });
 });

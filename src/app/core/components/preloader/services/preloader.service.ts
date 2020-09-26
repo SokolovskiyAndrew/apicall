@@ -3,7 +3,6 @@ import {Subject} from 'rxjs';
 
 @Injectable()
 export class PreloaderService {
-  // public showSpinner = false;
   isLoading = new Subject<boolean>();
 
   constructor() {}
