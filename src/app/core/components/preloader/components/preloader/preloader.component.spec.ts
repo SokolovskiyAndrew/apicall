@@ -10,7 +10,7 @@ describe('PreloaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PreloaderComponent],
-      providers: [PreloaderService]
+      providers: [PreloaderService],
     }).compileComponents();
   });
 

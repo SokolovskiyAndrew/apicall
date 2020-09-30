@@ -21,4 +21,10 @@ describe('InformationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('currencies should contain array of currencies', () => {
+    fixture.whenStable().then(() => {
+      expect(component.currencies.length).toBeGreaterThan(0);
+    });
+  });
 });

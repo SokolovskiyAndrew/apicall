@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ExchangeCurrencyChooseAmountComponent} from './exchange-currency-choose-amount.component';
 
-describe('ExchangeCurrencyInputComponent', () => {
+describe('ExchangeCurrencyChooseAmountComponent', () => {
   let component: ExchangeCurrencyChooseAmountComponent;
   let fixture: ComponentFixture<ExchangeCurrencyChooseAmountComponent>;
 

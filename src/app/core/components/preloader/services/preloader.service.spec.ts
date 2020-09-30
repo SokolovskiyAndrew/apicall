@@ -7,7 +7,7 @@ describe('PreloaderService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PreloaderService]
+      providers: [PreloaderService],
     });
     service = TestBed.inject(PreloaderService);
   });

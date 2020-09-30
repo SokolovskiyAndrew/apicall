@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./exchange-currency.component.scss'],
 })
 export class ExchangeCurrencyComponent implements OnInit {
-  currencies: Observable<Currency[]>;
+  getCurrencies: Observable<Currency[]>;
 
   constructor(private getDataService: GetExchangeCurrencyDataService) {}
 
@@ -18,6 +18,6 @@ export class ExchangeCurrencyComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.currencies = this.getDataService.getCurrencyData();
+    this.getCurrencies = this.getDataService.getCurrencyData();
   }
 }

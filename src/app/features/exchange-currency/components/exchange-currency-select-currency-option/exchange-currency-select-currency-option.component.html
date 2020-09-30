@@ -1,23 +1,25 @@
 <div class="container">
   <dx-select-box
+    id="firstSelectCurrencyValue"
     [dataSource]="data"
     displayExpr="txt"
     valueExpr="rate"
-    [placeholder]="currencies[0].txt"
+    [placeholder]="currencies[0]?.txt"
     width="300"
     (valueChange)="selectFirstValue($event)"
   ></dx-select-box>
   <dx-select-box
+    id="secondSelectCurrencyValue"
     [dataSource]="data"
     displayExpr="txt"
     valueExpr="rate"
-    [placeholder]="currencies[1].txt"
+    [placeholder]="currencies[1]?.txt"
     width="300"
     (valueChange)="selectSecondValue($event)"
   ></dx-select-box>
 </div>
 <app-exchange-currency-choose-amount
-  (amountValue)="getAmountValue($event.value)"
+  (amountValue)="getAmountValue($event)"
 ></app-exchange-currency-choose-amount>
 <dx-button
   stylingMode="contained"
@@ -29,6 +31,6 @@
 </dx-button>
 <h2>
   You'll receive:
-  <span>{{ result }}  {{secondSelectCurrencyValue}}</span>
+  <span>{{ result }}</span>
 </h2>
 <h4 *ngIf="validationError" class="validation-error">{{ validationError }}</h4>

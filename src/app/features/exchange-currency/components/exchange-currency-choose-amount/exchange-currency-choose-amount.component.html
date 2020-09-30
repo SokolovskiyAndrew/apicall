@@ -3,6 +3,6 @@
   [items]="amountArray"
   [value]="amountArray[0]"
   layout="horizontal"
-  (onValueChanged)="getValueOnClick($event)"
+  (onValueChanged)="amountValue.emit($event.value)"
 >
 </dx-radio-group>
