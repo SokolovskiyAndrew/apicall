@@ -9,15 +9,15 @@ import {Observable} from 'rxjs';
   styleUrls: ['./exchange-currency.component.scss'],
 })
 export class ExchangeCurrencyComponent implements OnInit {
-  getCurrencies: Observable<Currency[]>;
+  currencies$: Observable<Currency[]>;
 
   constructor(private getDataService: GetExchangeCurrencyDataService) {}
 
   ngOnInit(): void {
-    this.fetchData();
+    this.getCurrenciesList();
   }
 
-  fetchData(): void {
-    this.getCurrencies = this.getDataService.getCurrencyData();
+  getCurrenciesList(): void {
+    this.currencies$ = this.getDataService.getCurrencyData();
   }
 }

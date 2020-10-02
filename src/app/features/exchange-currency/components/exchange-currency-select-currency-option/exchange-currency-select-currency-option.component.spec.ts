@@ -38,9 +38,9 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe("component's variables", () => {
+  describe('component variables', () => {
     it('value from first select should be 165', () => {
-      component.selectFirstValue(165);
+      component.onFirstSelectValueChange(165);
       expect(component.firstSelectCurrencyValue).toEqual(165);
     });
 
@@ -53,7 +53,7 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     });
 
     it('value from second select should be 20.21', () => {
-      component.selectSecondValue(20.21);
+      component.onSecondSelectValueChange(20.21);
       expect(component.secondSelectCurrencyValue).toEqual(20.21);
     });
 
@@ -66,7 +66,7 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     });
 
     it('value received from choose-amount-component should be 100', () => {
-      component.getAmountValue(100);
+      component.setAmountValue(100);
       expect(component.amountValue).toEqual(100);
     });
   });

@@ -14,9 +14,4 @@ export class ExchangeCurrencyChooseAmountComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  // getValueOnClick(value): void {
-  //   this.amountValue.emit(value);
-  //   console.log(value)
-  // }
 }

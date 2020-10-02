@@ -9,19 +9,13 @@ import {Currency} from '../../../../share-files/interfaces/currency.interface';
   styleUrls: ['./exchange-currency-select-currency-option.component.scss'],
 })
 export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
-  setCurrencies: Currency[];
+  currenciesArray: Currency[];
   @Input()
   set currencies(receivedCurrency: Currency[]) {
-    if (receivedCurrency) {
-      this.setCurrencies = receivedCurrency;
-    }
+    this.currenciesArray = receivedCurrency;
   }
 
-  get currencies(): Currency[] {
-    return this.setCurrencies;
-  }
-
-  data: object;
+  data: ArrayStore;
   result: number;
   amountValue: number;
   firstSelectCurrencyValue: number;
@@ -33,23 +27,23 @@ export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
   ngOnInit(): void {
     this.amountValue = 10;
     this.data = new ArrayStore({
-      data: this.setCurrencies,
-      key: 'rate',
+      data: this.currenciesArray,
+      key: 'cc',
     });
   }
 
-  getAmountValue(value): void {
+  setAmountValue(value): void {
     this.amountValue = value;
     console.log(this.amountValue);
   }
 
-  selectFirstValue(firstValue): void {
-    this.firstSelectCurrencyValue = firstValue;
+  onFirstSelectValueChange(firstSelectValue): void {
+    this.firstSelectCurrencyValue = firstSelectValue;
     console.log(this.firstSelectCurrencyValue);
   }
 
-  selectSecondValue(secondValue): void {
-    this.secondSelectCurrencyValue = secondValue;
+  onSecondSelectValueChange(secondSelectValue): void {
+    this.secondSelectCurrencyValue = secondSelectValue;
     console.log(this.secondSelectCurrencyValue);
   }
 
@@ -59,10 +53,10 @@ export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
       this.secondSelectCurrencyValue,
       this.amountValue
     );
-    this.selectCurrenciesValidation();
+    this.checkSelectBoxOnErrors();
   }
 
-  selectCurrenciesValidation(): void {
+  checkSelectBoxOnErrors(): void {
     if (!this.firstSelectCurrencyValue && !this.secondSelectCurrencyValue) {
       this.validationError = 'Please, select currencies';
     } else if (
