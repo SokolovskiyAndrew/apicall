@@ -1,4 +1,9 @@
-import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {of} from 'rxjs';
 import {delay} from 'rxjs/operators';
@@ -6,7 +11,6 @@ import {delay} from 'rxjs/operators';
 import {ExchangeCurrencyComponent} from './exchange-currency.component';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
 import {Currency} from '../../../../share-files/interfaces/currency.interface';
-
 
 const expectedCurrencies: Currency[] = [
   {
@@ -51,10 +55,9 @@ describe('ExchangeCurrencyComponent', () => {
 
   it('should correctly assign data', fakeAsync(() => {
     let currencies: Currency[];
-    component.currencies$ = of(expectedCurrencies)
-      .pipe(delay(400));
+    component.currencies$ = of(expectedCurrencies).pipe(delay(400));
 
-    component.currencies$.subscribe(receivedData => {
+    component.currencies$.subscribe((receivedData) => {
       currencies = receivedData;
     });
     expect(currencies).toBeUndefined();

@@ -25,7 +25,7 @@ export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
   constructor(private calculationService: CalculationCurrencyService) {}
 
   ngOnInit(): void {
-    console.log(this.currencies)
+    console.log(this.currencies);
     this.amountValue = 10;
     this.data = new ArrayStore({
       data: this.currenciesArray,
