@@ -1,4 +1,4 @@
-<div class="container" *ngIf="currencies | async as currencies">
+<div class="container" *ngIf="currencies$ | async as currencies">
   <app-exchange-currency-dropdown
     [currencies]="currencies"
   ></app-exchange-currency-dropdown>

@@ -1,14 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 import {ExchangeCurrencyChooseAmountComponent} from './exchange-currency-choose-amount.component';
 
-describe('ExchangeCurrencyInputComponent', () => {
+describe('ExchangeCurrencyChooseAmountComponent', () => {
   let component: ExchangeCurrencyChooseAmountComponent;
   let fixture: ComponentFixture<ExchangeCurrencyChooseAmountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ExchangeCurrencyChooseAmountComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

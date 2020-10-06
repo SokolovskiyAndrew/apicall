@@ -5,14 +5,19 @@ import {Currency} from '../../../../share-files/interfaces/currency.interface';
 
 @Component({
   selector: 'app-exchange-currency-dropdown',
-  templateUrl: './exchange-currency-dropdown.component.html',
-  styleUrls: ['./exchange-currency-dropdown.component.scss'],
+  templateUrl: './exchange-currency-select-currency-option.component.html',
+  styleUrls: ['./exchange-currency-select-currency-option.component.scss'],
 })
-export class ExchangeCurrencyDropdownComponent implements OnInit {
-  @Input() currencies: Currency[];
-  data: object;
+export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
+  currenciesArray: Currency[];
+  @Input()
+  set currencies(receivedCurrency: Currency[]) {
+    this.currenciesArray = receivedCurrency;
+  }
+
+  data: ArrayStore;
   result: number;
-  amountValue = 10;
+  amountValue: number;
   firstSelectCurrencyValue: number;
   secondSelectCurrencyValue: number;
   validationError: string;
@@ -20,37 +25,40 @@ export class ExchangeCurrencyDropdownComponent implements OnInit {
   constructor(private calculationService: CalculationCurrencyService) {}
 
   ngOnInit(): void {
+    console.log(this.currencies);
+    this.amountValue = 10;
     this.data = new ArrayStore({
-      data: this.currencies,
-      key: 'rate',
+      data: this.currenciesArray,
+      key: 'cc',
     });
   }
 
-  getAmountValue(value): void {
+  setAmountValue(value): void {
     this.amountValue = value;
     console.log(this.amountValue);
   }
 
-  selectFirstValue(firstValue): void {
-    this.firstSelectCurrencyValue = firstValue;
+  onFirstSelectValueChange(firstSelectValue): void {
+    this.firstSelectCurrencyValue = firstSelectValue;
     console.log(this.firstSelectCurrencyValue);
   }
 
-  selectSecondValue(secondValue): void {
-    this.secondSelectCurrencyValue = secondValue;
+  onSecondSelectValueChange(secondSelectValue): void {
+    this.secondSelectCurrencyValue = secondSelectValue;
     console.log(this.secondSelectCurrencyValue);
   }
 
   getCalculationResult(): void {
-    this.result = this.calculationService.calculateExchangeCurrency(
-      this.firstSelectCurrencyValue,
-      this.secondSelectCurrencyValue,
-      this.amountValue
-    );
-    this.selectCurrenciesValidation();
+    if (!this.checkSelectBoxOnErrors()) {
+      this.result = this.calculationService.calculateExchangeCurrency(
+        this.firstSelectCurrencyValue,
+        this.secondSelectCurrencyValue,
+        this.amountValue
+      );
+    }
   }
 
-  selectCurrenciesValidation(): void {
+  checkSelectBoxOnErrors(): string {
     if (!this.firstSelectCurrencyValue && !this.secondSelectCurrencyValue) {
       this.validationError = 'Please, select currencies';
     } else if (
@@ -61,5 +69,7 @@ export class ExchangeCurrencyDropdownComponent implements OnInit {
     } else {
       this.validationError = '';
     }
+
+    return this.validationError;
   }
 }

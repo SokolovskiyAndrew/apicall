@@ -7,15 +7,11 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class ExchangeCurrencyChooseAmountComponent implements OnInit {
   amountArray: number[];
-  @Output() amountValue = new EventEmitter();
+  @Output() amountValue = new EventEmitter<number>();
 
   constructor() {
     this.amountArray = [10, 100, 1000];
   }
 
   ngOnInit(): void {}
-
-  getValueOnClick(value): void {
-    this.amountValue.emit(value);
-  }
 }

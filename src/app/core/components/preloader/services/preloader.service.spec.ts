@@ -6,7 +6,9 @@ describe('PreloaderService', () => {
   let service: PreloaderService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [PreloaderService],
+    });
     service = TestBed.inject(PreloaderService);
   });
 
