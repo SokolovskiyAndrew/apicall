@@ -25,6 +25,7 @@ export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
   constructor(private calculationService: CalculationCurrencyService) {}
 
   ngOnInit(): void {
+    console.log(this.currencies)
     this.amountValue = 10;
     this.data = new ArrayStore({
       data: this.currenciesArray,
@@ -48,15 +49,16 @@ export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
   }
 
   getCalculationResult(): void {
-    this.result = this.calculationService.calculateExchangeCurrency(
-      this.firstSelectCurrencyValue,
-      this.secondSelectCurrencyValue,
-      this.amountValue
-    );
-    this.checkSelectBoxOnErrors();
+    if (!this.checkSelectBoxOnErrors()) {
+      this.result = this.calculationService.calculateExchangeCurrency(
+        this.firstSelectCurrencyValue,
+        this.secondSelectCurrencyValue,
+        this.amountValue
+      );
+    }
   }
 
-  checkSelectBoxOnErrors(): void {
+  checkSelectBoxOnErrors(): string {
     if (!this.firstSelectCurrencyValue && !this.secondSelectCurrencyValue) {
       this.validationError = 'Please, select currencies';
     } else if (
@@ -67,5 +69,7 @@ export class ExchangeCurrencySelectCurrencyOptionComponent implements OnInit {
     } else {
       this.validationError = '';
     }
+
+    return this.validationError;
   }
 }

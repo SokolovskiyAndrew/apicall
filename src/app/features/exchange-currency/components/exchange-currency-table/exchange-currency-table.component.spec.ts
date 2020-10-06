@@ -1,10 +1,9 @@
 import {
   ComponentFixture,
   fakeAsync,
-  TestBed,
-  tick,
+  TestBed
 } from '@angular/core/testing';
-
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {ExchangeCurrencyTableComponent} from './exchange-currency-table.component';
 
 describe('InformationComponent', () => {
@@ -14,6 +13,7 @@ describe('InformationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ExchangeCurrencyTableComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -34,7 +34,9 @@ describe('InformationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('currencies should contain array of currencies', () => {
-    expect(component.currencies.length).toBeGreaterThan(0);
-  });
+  it('currencies should contain array of currencies', fakeAsync(() => {
+    fixture.whenStable().then(() => {
+      expect(component.currencies.length).toBeGreaterThan(0);
+    })
+  }));
 });

@@ -1,8 +1,29 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {of} from 'rxjs';
+import {delay} from 'rxjs/operators';
 
 import {ExchangeCurrencyComponent} from './exchange-currency.component';
 import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
+import {Currency} from '../../../../share-files/interfaces/currency.interface';
+
+
+const expectedCurrencies: Currency[] = [
+  {
+    cc: 'EU',
+    exchangedate: '20.09.2012',
+    r030: 136,
+    rate: 10.01,
+    txt: 'euro',
+  },
+  {
+    cc: 'AUX',
+    exchangedate: '20.09.2012',
+    r030: 236,
+    rate: 20.02,
+    txt: 'canadian buck',
+  },
+];
 
 describe('ExchangeCurrencyComponent', () => {
   let component: ExchangeCurrencyComponent;
@@ -27,4 +48,17 @@ describe('ExchangeCurrencyComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should correctly assign data', fakeAsync(() => {
+    let currencies: Currency[];
+    component.currencies$ = of(expectedCurrencies)
+      .pipe(delay(400));
+
+    component.currencies$.subscribe(receivedData => {
+      currencies = receivedData;
+    });
+    expect(currencies).toBeUndefined();
+    tick(400);
+    expect(currencies).toEqual(expectedCurrencies);
+  }));
 });

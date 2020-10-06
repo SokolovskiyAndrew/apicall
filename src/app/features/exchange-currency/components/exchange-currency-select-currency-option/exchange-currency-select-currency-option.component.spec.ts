@@ -1,18 +1,23 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 
 import {ExchangeCurrencySelectCurrencyOptionComponent} from './exchange-currency-select-currency-option.component';
 import {CalculationCurrencyService} from '../../services/calculation-currency/calculation-currency.service';
+import {DxSelectBoxModule} from 'devextreme-angular';
+import {Input, NO_ERRORS_SCHEMA} from '@angular/core';
+import {ExchangeCurrencyTableComponent} from '../exchange-currency-table/exchange-currency-table.component';
+import {Currency} from '../../../../share-files/interfaces/currency.interface';
 
 describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
   let component: ExchangeCurrencySelectCurrencyOptionComponent;
   let fixture: ComponentFixture<ExchangeCurrencySelectCurrencyOptionComponent>;
   let calcService: CalculationCurrencyService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ExchangeCurrencySelectCurrencyOptionComponent],
       providers: [CalculationCurrencyService],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -22,15 +27,13 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     );
     calcService = TestBed.inject(CalculationCurrencyService);
     component = fixture.componentInstance;
-    component.currencies = [
-      {
-        cc: 'abreviation',
-        exchangedate: '02.09.2012',
-        r030: 20,
-        rate: 30,
-        txt: 'text',
-      },
-    ];
+    component.currencies = [{
+        cc: 'select',
+        exchangedate: '03.09.2013',
+        r030: 30,
+        rate: 40,
+        txt: 'ruanda',
+      }];
     fixture.detectChanges();
   });
 
@@ -69,5 +72,17 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
       component.setAmountValue(100);
       expect(component.amountValue).toEqual(100);
     });
+  });
+
+  it('currencies input should set currenciesArray',() => {
+    const currenciesFake = [{
+      cc: 'setter',
+      exchangedate: '03.09.2013',
+      r030: 30,
+      rate: 40,
+      txt: 'indian rupia',
+    }];
+    component.currencies = currenciesFake;
+    expect(component.currenciesArray).toBe(currenciesFake);
   });
 });
