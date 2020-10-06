@@ -1,0 +1,47 @@
+<dx-button
+  stylingMode="contained"
+  text="Get users"
+  type="success"
+  [width]="120"
+  (onClick)="onRetrieveUsersList()"
+>
+</dx-button>
+<!--<dx-data-grid-->
+<!--  *ngIf="usersList"-->
+<!--  [dataSource]="usersList | async"-->
+<!--  [showBorders]="true"-->
+<!--  [showRowLines]="true"-->
+<!--&gt;-->
+<!--  <dxo-paging [pageSize]="10"></dxo-paging>-->
+<!--  <dxo-pager-->
+<!--    [showPageSizeSelector]="true"-->
+<!--    [allowedPageSizes]="[10, 20]"-->
+<!--    [showInfo]="true"-->
+<!--  >-->
+<!--  </dxo-pager>-->
+
+<!--  <dxi-column dataField="login" caption="login">Text</dxi-column>-->
+<!--  <dxi-column dataField="exchangedate" caption="Date"></dxi-column>-->
+<!--  <dxi-column dataField="r030" caption="Amount" alignment="left"></dxi-column>-->
+<!--  <dxi-column dataField="rate" caption="Rate" alignment="left"></dxi-column>-->
+<!--  <dxi-column dataField="txt" caption="Title"></dxi-column>-->
+<!--</dx-data-grid>-->
+<div
+  class="container"
+  *ngIf="showUser"
+>
+  <ul
+    *ngIf="usersList$"
+    class="user-list"
+  >
+    <li
+      *ngFor="let user of usersList$ | async"
+      id="{{user.id}}"
+      class="user-card"
+    >
+      <img src="{{user.avatar_url}}" alt="user's avatar">
+      <h4>{{user.login | uppercase}}</h4>
+      <a href="{{user.html_url}}" target="_blank">Show page</a>
+    </li>
+  </ul>
+</div>
