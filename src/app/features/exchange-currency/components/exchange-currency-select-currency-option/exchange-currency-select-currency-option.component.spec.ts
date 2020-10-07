@@ -1,7 +1,4 @@
-import {
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
@@ -77,13 +74,15 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
   });
 
   it('currencies input should set currenciesArray', () => {
-    const currenciesFake = [{
+    const currenciesFake = [
+      {
         cc: 'setter',
         exchangedate: '03.09.2013',
         r030: 30,
         rate: 40,
         txt: 'indian rupia',
-      }];
+      },
+    ];
     component.currencies = currenciesFake;
     expect(component.currenciesArray).toBe(currenciesFake);
   });

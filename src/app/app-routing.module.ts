@@ -11,6 +11,13 @@ const routes: Routes = [
         (m) => m.ExchangeCurrencyModule
       ),
   },
+  {
+    path: 'git-users',
+    loadChildren: () =>
+      import('./features/git-users/git-users.module').then(
+        (m) => m.GitUsersModule
+      ),
+  },
 ];
 
 @NgModule({
