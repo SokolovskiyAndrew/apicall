@@ -7,11 +7,7 @@ import {GetGitUsersDataService} from './services/get-git-users-data.service';
 
 @NgModule({
   declarations: [GetGitUsersListComponent],
-  imports: [
-    CommonModule,
-    GitUsersRoutingModule,
-    DxButtonModule
-  ],
+  imports: [CommonModule, GitUsersRoutingModule, DxButtonModule],
   providers: [GetGitUsersDataService],
 })
 export class GitUsersModule {}

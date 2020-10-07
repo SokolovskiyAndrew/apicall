@@ -3,19 +3,6 @@
   text="Get users"
   type="success"
   [width]="120"
-  (onClick)="onRetrieveUsersList()"
+  (onClick)="getUserData()"
 >
 </dx-button>
-<div class="container" *ngIf="showUser">
-  <ul *ngIf="usersList$" class="user-list">
-    <li
-      *ngFor="let user of usersList$ | async"
-      id="{{ user.id }}"
-      class="user-card"
-    >
-      <img src="{{ user.avatar_url }}" alt="user's avatar" />
-      <h4>{{ user.login | uppercase }}</h4>
-      <a href="{{ user.html_url }}" target="_blank">Show page</a>
-    </li>
-  </ul>
-</div>

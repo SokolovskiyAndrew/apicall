@@ -10,18 +10,16 @@ import {Observable} from 'rxjs';
 })
 export class GetGitUsersListComponent implements OnInit {
   usersList$: Observable<GitUser[]>;
-  showUser = false;
+  gitUsersArray: GitUser[] = [];
+
   constructor(private getUsersListService: GetGitUsersDataService) {}
 
-  ngOnInit(): void {
-    this.getUserData();
-  }
+  ngOnInit(): void {}
 
   getUserData(): void {
     this.usersList$ = this.getUsersListService.getGitUsersData();
-  }
-
-  onRetrieveUsersList(): void {
-    this.showUser = true;
+    this.usersList$.subscribe((users) => {
+      this.gitUsersArray = users;
+    });
   }
 }
