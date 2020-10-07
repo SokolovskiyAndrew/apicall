@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { GetGitUsersDataService } from './get-git-users-data.service';
+import {GetGitUsersDataService} from './get-git-users-data.service';
 
 describe('GetGitUsersDataService', () => {
   let service: GetGitUsersDataService;

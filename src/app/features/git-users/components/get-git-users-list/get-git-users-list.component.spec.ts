@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GetGitUsersListComponent } from './get-git-users-list.component';
+import {GetGitUsersListComponent} from './get-git-users-list.component';
 
 describe('GetGitUsersListComponent', () => {
   let component: GetGitUsersListComponent;
@@ -8,9 +8,8 @@ describe('GetGitUsersListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetGitUsersListComponent ]
-    })
-    .compileComponents();
+      declarations: [GetGitUsersListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

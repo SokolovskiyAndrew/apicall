@@ -14,9 +14,10 @@ const routes: Routes = [
   {
     path: 'git-users',
     loadChildren: () =>
-      import('./features/git-users/git-users.module').then
-      (m => m.GitUsersModule)
-  }
+      import('./features/git-users/git-users.module').then(
+        (m) => m.GitUsersModule
+      )
+  },
 ];
 
 @NgModule({
