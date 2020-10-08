@@ -12,4 +12,10 @@ export class GetGitUsersDataService {
       'https://api.github.com/users?per_page=100&page=1'
     );
   }
+
+  getSeparateGitUserData(userLogin): Observable<GitUser[]> {
+    return this.http.get<GitUser[]>(
+      `https://api.github.com/users/${userLogin}`
+    );
+  }
 }
