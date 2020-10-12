@@ -23,6 +23,7 @@
     "devextreme": "20.1-stable",
     "devextreme-angular": "20.1-stable",
     "devextreme-schematics": "^1.2.3",
+    "lodash": "^4.17.20",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -33,6 +34,7 @@
     "@angular/compiler-cli": "~10.1.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/lodash": "^4.14.161",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "devextreme-cli": "latest",

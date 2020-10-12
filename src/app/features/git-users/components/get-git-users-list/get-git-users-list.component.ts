@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {GetGitUsersDataService} from '../../services/get-git-users-data.service';
-import {map, mergeMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
+import * as _ from 'lodash';
 import {GitUser} from '../../../../share-files/interfaces/git-user.interface';
 
 @Component({
@@ -10,51 +11,59 @@ import {GitUser} from '../../../../share-files/interfaces/git-user.interface';
   styleUrls: ['./get-git-users-list.component.scss'],
 })
 export class GetGitUsersListComponent {
-
   constructor(private getUsersListService: GetGitUsersDataService) {}
 
   getUserData(): void {
-    this.getUsersListService.getGitUsersData()
+    this.getUsersListService
+      .getGitUsersData()
       .pipe(
-        map(users => {
+        map((users) => {
           return this.createUserLoginArray(users);
         }),
-        mergeMap(userLoginsList => {
+        switchMap((userLoginsList) => {
           const longestLogin = this.findLongestUserLogin(userLoginsList);
           const shortestLogin = this.findShortestUserLogin(userLoginsList);
-          const getLongestUserLoginInfo = this.getUsersListService.getSeparateGitUserData(longestLogin);
-          const getShortestUserLoginInfo = this.getUsersListService.getSeparateGitUserData(shortestLogin);
+          const getLongestUserLoginInfo$ = this.getUsersListService.getSeparateGitUserData(
+            longestLogin
+          );
+          const getShortestUserLoginInfo$ = this.getUsersListService.getSeparateGitUserData(
+            shortestLogin
+          );
 
-          return forkJoin([getLongestUserLoginInfo, getShortestUserLoginInfo]);
+          return forkJoin([
+            getLongestUserLoginInfo$,
+            getShortestUserLoginInfo$,
+          ]);
         })
       )
-    .subscribe();
+      .subscribe();
   }
 
   createUserLoginArray(usersArray: GitUser[]): string[] {
     const userLoginsList: string[] = [];
-    usersArray.map(user => {
-      userLoginsList.push(user.login.toLowerCase());
+    usersArray.map((user) => {
+      userLoginsList.push(user.login);
     });
     return userLoginsList;
   }
 
   findLongestUserLogin(usersArray): string {
     let longestUserLogin: string;
-    longestUserLogin = usersArray.sort((firstCompareString, secondCompareString) => {
-      return secondCompareString.length - firstCompareString.length;
+    longestUserLogin = _.reduce(usersArray, (longestLogin, currentLogin) => {
+      return longestLogin.length > currentLogin.length
+        ? longestLogin
+        : currentLogin;
     });
-    return longestUserLogin[0];
+    return longestUserLogin;
   }
 
   findShortestUserLogin(usersArray): string {
     let shortestUserLogin: string;
-    shortestUserLogin = usersArray.sort((firstCompareString, secondCompareString) => {
-      return firstCompareString.length - secondCompareString.length;
+    shortestUserLogin = _.reduce(usersArray, (shortestLogin, currentLogin) => {
+      return shortestLogin.length < currentLogin.length
+        ? shortestLogin
+        : currentLogin;
     });
-    return shortestUserLogin[0];
+    return shortestUserLogin;
   }
 }
-
-
-
