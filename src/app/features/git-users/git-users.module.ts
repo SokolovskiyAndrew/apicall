@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {GetGitUsersListComponent} from './components/get-git-users-list/get-git-users-list.component';
 import {GitUsersRoutingModule} from './git-users-routing.module';
 import {DxButtonModule} from 'devextreme-angular';
-import {GetGitUsersDataService} from './services/get-git-users-data.service';
+import {GetGitUsersDataService, GetGitUsersListComponent} from '../git-users';
 
 @NgModule({
   declarations: [GetGitUsersListComponent],

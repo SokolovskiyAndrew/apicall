@@ -5,9 +5,9 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PreloaderService} from '../components/preloader/services/preloader.service';
-import {Injectable} from '@angular/core';
 import {finalize} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {PreloaderService} from '../interceptors';
 
 @Injectable()
 export class LoadingSpinnerInterceptor implements HttpInterceptor {

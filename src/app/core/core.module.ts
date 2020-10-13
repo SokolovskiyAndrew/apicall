@@ -4,9 +4,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import {PreloaderModule} from './components/preloader/preloader.module';
-import {HomeComponent} from './components/home/home.component';
-import {LoadingSpinnerInterceptor} from './interceptors/loading-spinner.interceptor';
+import {
+  PreloaderModule,
+  HomeComponent,
+  LoadingSpinnerInterceptor,
+} from '../core';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
