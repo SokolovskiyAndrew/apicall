@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {GitUser} from '../services';
+import {GitUser} from '../../../share-files/interfaces/git-user.interface';
 
 @Injectable()
 export class GetGitUsersDataService {
