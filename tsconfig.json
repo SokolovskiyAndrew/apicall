@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@share-files/*": ["app/share-files/*"]
+      "@share-files/interfaces": ["app/share-files/interfaces"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

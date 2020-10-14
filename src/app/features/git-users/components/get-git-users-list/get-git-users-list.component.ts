@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {switchMap} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 import * as _ from 'lodash';
-import {GitUser} from '@share-files/interfaces/git-user.interface';
+import {GitUser} from '@share-files/interfaces';
 import {GetGitUsersDataService} from '../../services/get-git-users-data.service';
 
 @Component({
