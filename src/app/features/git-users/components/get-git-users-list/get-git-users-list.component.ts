@@ -2,9 +2,8 @@ import {Component} from '@angular/core';
 import {switchMap} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 import * as _ from 'lodash';
-import {GitUser} from '../../../../share-files/interfaces/git-user.interface';
+import {GitUser} from '@share-files/interfaces/git-user.interface';
 import {GetGitUsersDataService} from '../../services/get-git-users-data.service';
-
 
 @Component({
   selector: 'app-get-git-users-list',
@@ -32,7 +31,7 @@ export class GetGitUsersListComponent {
             getLongestUserLoginInfo$,
             getShortestUserLoginInfo$,
           ]);
-        }),
+        })
       )
       .subscribe();
   }
@@ -45,3 +44,11 @@ export class GetGitUsersListComponent {
     return _.minBy(usersList, 'login.length');
   }
 }
+
+const arrayM = [10, 8, 14];
+
+const reduce = arrayM.reduce((a, b) => {
+  console.log(`a: ${a}, b: ${b}`);
+  return b + a;
+}, 2);
+console.log(reduce);

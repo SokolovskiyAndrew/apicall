@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import ArrayStore from 'devextreme/data/array_store';
 import {CalculationCurrencyService} from '../../services/calculation-currency/calculation-currency.service';
-import {Currency} from '../../../../share-files/interfaces/currency.interface';
+import {Currency} from '@share-files/interfaces/currency.interface';
 
 @Component({
   selector: 'app-exchange-currency-dropdown',
