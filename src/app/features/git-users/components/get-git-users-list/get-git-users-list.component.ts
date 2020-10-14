@@ -3,7 +3,7 @@ import {switchMap} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 import * as _ from 'lodash';
 import {GitUser} from '@share-files/interfaces';
-import {GetGitUsersDataService} from '../../services/get-git-users-data.service';
+import {GetGitUsersDataService} from '../../services';
 
 @Component({
   selector: 'app-get-git-users-list',
@@ -45,10 +45,3 @@ export class GetGitUsersListComponent {
   }
 }
 
-const arrayM = [10, 8, 14];
-
-const reduce = arrayM.reduce((a, b) => {
-  console.log(`a: ${a}, b: ${b}`);
-  return b + a;
-}, 2);
-console.log(reduce);

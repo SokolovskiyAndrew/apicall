@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import ArrayStore from 'devextreme/data/array_store';
-import {CalculationCurrencyService} from '../../services/calculation-currency/calculation-currency.service';
+import {CalculationCurrencyService} from '../../services';
 import {Currency} from '@share-files/interfaces';
 
 @Component({

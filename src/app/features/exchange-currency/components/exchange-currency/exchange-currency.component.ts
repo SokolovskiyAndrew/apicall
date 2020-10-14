@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 
-import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
+import {GetExchangeCurrencyDataService} from '../../services';
 import {Currency} from '@share-files/interfaces';
 
 @Component({
