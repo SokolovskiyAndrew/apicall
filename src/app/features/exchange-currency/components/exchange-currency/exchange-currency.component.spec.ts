@@ -9,8 +9,8 @@ import {of} from 'rxjs';
 import {delay} from 'rxjs/operators';
 
 import {ExchangeCurrencyComponent} from './exchange-currency.component';
-import {GetExchangeCurrencyDataService} from '../../services/get-exchange-currency-data/get-exchange-currency-data.service';
-import {Currency} from '../../../../share-files/interfaces/currency.interface';
+import {GetExchangeCurrencyDataService} from '../../services';
+import {Currency} from '@share-files/interfaces';
 
 const expectedCurrencies: Currency[] = [
   {

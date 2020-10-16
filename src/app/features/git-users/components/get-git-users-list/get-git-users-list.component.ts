@@ -44,4 +44,3 @@ export class GetGitUsersListComponent {
     return _.minBy(usersList, 'login.length');
   }
 }
-

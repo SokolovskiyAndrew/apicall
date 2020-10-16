@@ -13,9 +13,7 @@ export class GetGitUsersDataService {
     );
   }
 
-  getSeparateGitUserData(userLogin): Observable<GitUser[]> {
-    return this.http.get<GitUser[]>(
-      `https://api.github.com/users/${userLogin}`
-    );
+  getSeparateGitUserData(userLogin): Observable<GitUser> {
+    return this.http.get<GitUser>(`https://api.github.com/users/${userLogin}`);
   }
 }
