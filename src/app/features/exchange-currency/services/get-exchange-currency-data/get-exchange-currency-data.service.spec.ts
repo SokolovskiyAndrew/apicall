@@ -5,7 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {Currency} from '../../../../share-files/interfaces/currency.interface';
+import {Currency} from '@share-files/interfaces';
 
 const expectedCurrencies: Currency[] = [
   {

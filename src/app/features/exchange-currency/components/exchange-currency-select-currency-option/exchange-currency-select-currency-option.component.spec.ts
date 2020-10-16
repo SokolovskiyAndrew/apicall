@@ -3,7 +3,8 @@ import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
 import {ExchangeCurrencySelectCurrencyOptionComponent} from './exchange-currency-select-currency-option.component';
-import {CalculationCurrencyService} from '../../services/calculation-currency/calculation-currency.service';
+import {CalculationCurrencyService} from '../../services';
+import {DxiButtonModule} from 'devextreme-angular/ui/nested';
 
 describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
   let component: ExchangeCurrencySelectCurrencyOptionComponent;
@@ -14,6 +15,7 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ExchangeCurrencySelectCurrencyOptionComponent],
       providers: [CalculationCurrencyService],
+      imports: [DxiButtonModule],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
@@ -85,5 +87,41 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     ];
     component.currencies = currenciesFake;
     expect(component.currenciesArray).toBe(currenciesFake);
+  });
+
+  describe('validation function', () => {
+    it('validationError value should be - Please, select currencies', () => {
+      component.checkSelectBoxOnErrors();
+      expect(component.validationError).toBe('Please, select currencies');
+    });
+
+    it('validationError variable value should be - Please, select both currencies', () => {
+      component.firstSelectCurrencyValue = 22;
+      component.checkSelectBoxOnErrors();
+      expect(component.validationError).toBe('Please, select both currencies');
+    });
+
+    it('validationError variable value should be empty', () => {
+      component.firstSelectCurrencyValue = 22;
+      component.secondSelectCurrencyValue = 23;
+      component.checkSelectBoxOnErrors();
+      expect(component.validationError).toBe('');
+    });
+  });
+
+  it("getCalculationResult() should call service calculateExchangeCurrency function if there i'snt validation error", () => {
+    const spy = spyOn(calcService, 'calculateExchangeCurrency');
+    spyOn(component, 'checkSelectBoxOnErrors').and.returnValue('');
+    component.getCalculationResult();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("getCalculationResult() should't call service calculateExchangeCurrency function if there is validation error", () => {
+    const spy = spyOn(calcService, 'calculateExchangeCurrency');
+    spyOn(component, 'checkSelectBoxOnErrors').and.returnValue(
+      'Please, select both currencies'
+    );
+    component.getCalculationResult();
+    expect(spy).not.toHaveBeenCalled();
   });
 });
