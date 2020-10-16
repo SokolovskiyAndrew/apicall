@@ -56,26 +56,28 @@ describe('GetGitUsersListComponent', () => {
   });
 
   it('getUserData() should call getGitUsersData() and getSeparateGitUserData() from getUsersListService and find function from component', () => {
-    const getUsersList = spyOn(
+    const getUsersListSpy = spyOn(
       getGitUserService,
       'getGitUsersData'
     ).and.returnValue(of(mockGitUsers));
-    const findLongest = spyOn(
+    const findLongestSpy = spyOn(
       component,
       'findLongestUserLogin'
     ).and.returnValue(mockGitUsers[0]);
-    const findShortest = spyOn(
+    const findShortestSpy = spyOn(
       component,
       'findShortestUserLogin'
     ).and.returnValue(mockGitUsers[1]);
-    const getSeparateUser = spyOn(
+    const getSeparateUserSpy = spyOn(
       getGitUserService,
       'getSeparateGitUserData'
     ).and.returnValue(of(mockGitUsers[0]));
+
     component.getUserData();
-    expect(getUsersList).toHaveBeenCalled();
-    expect(findLongest).toHaveBeenCalledWith(mockGitUsers);
-    expect(findShortest).toHaveBeenCalledWith(mockGitUsers);
-    expect(getSeparateUser).toHaveBeenCalledWith(mockGitUsers[0].login);
+
+    expect(getUsersListSpy).toHaveBeenCalled();
+    expect(findLongestSpy).toHaveBeenCalledWith(mockGitUsers);
+    expect(findShortestSpy).toHaveBeenCalledWith(mockGitUsers);
+    expect(getSeparateUserSpy).toHaveBeenCalledWith(mockGitUsers[0].login);
   });
 });
