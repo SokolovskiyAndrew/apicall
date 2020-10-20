@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {switchMap} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 import * as _ from 'lodash';
-import {GitUser} from '@share-files/interfaces';
+
 import {GetGitUsersDataService} from '../../services';
+import {GitUser} from '@share-files/interfaces';
 
 @Component({
   selector: 'app-get-git-users-list',
