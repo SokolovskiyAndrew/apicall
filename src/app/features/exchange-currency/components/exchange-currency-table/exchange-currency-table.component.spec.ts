@@ -1,6 +1,6 @@
-import {ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {ExchangeCurrencyTableComponent} from './exchange-currency-table.component';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ExchangeCurrencyTableComponent } from './exchange-currency-table.component';
 
 describe('InformationComponent', () => {
   let component: ExchangeCurrencyTableComponent;

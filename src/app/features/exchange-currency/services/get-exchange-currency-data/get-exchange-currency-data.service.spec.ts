@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {GetExchangeCurrencyDataService} from './get-exchange-currency-data.service';
+import { GetExchangeCurrencyDataService } from './get-exchange-currency-data.service';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {Currency} from '@share-files/interfaces';
+import { Currency } from '@share-files/interfaces';
 
 const expectedCurrencies: Currency[] = [
   {

@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Currency} from '@share-files/interfaces';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Currency } from '@share-files/interfaces';
 
 @Injectable()
 export class GetExchangeCurrencyDataService {
