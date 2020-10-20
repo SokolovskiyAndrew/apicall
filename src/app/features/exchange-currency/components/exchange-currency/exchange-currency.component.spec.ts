@@ -4,13 +4,13 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {of} from 'rxjs';
-import {delay} from 'rxjs/operators';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
-import {ExchangeCurrencyComponent} from './exchange-currency.component';
-import {GetExchangeCurrencyDataService} from '../../services';
-import {Currency} from '@share-files/interfaces';
+import { ExchangeCurrencyComponent } from './exchange-currency.component';
+import { GetExchangeCurrencyDataService } from '../../services';
+import { Currency } from '@share-files/interfaces';
 
 const expectedCurrencies: Currency[] = [
   {

@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {GetGitUsersListComponent} from './components/get-git-users-list/get-git-users-list.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { GetGitUsersListComponent } from './components/get-git-users-list/get-git-users-list.component';
 
-const routes: Routes = [{path: '', component: GetGitUsersListComponent}];
+const routes: Routes = [{ path: '', component: GetGitUsersListComponent }];
 
 @NgModule({
   declarations: [],

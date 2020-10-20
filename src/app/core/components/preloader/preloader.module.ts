@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {PreloaderComponent} from './components/preloader/preloader.component';
-import {PreloaderService} from './services/preloader.service';
-import {DxLoadIndicatorModule} from 'devextreme-angular';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PreloaderComponent } from './components/preloader/preloader.component';
+import { PreloaderService } from './services';
+import { DxLoadIndicatorModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [PreloaderComponent],

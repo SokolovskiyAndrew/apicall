@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {GetGitUsersDataService} from './get-git-users-data.service';
+import { GetGitUsersDataService } from './get-git-users-data.service';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {GitUser} from '@share-files/interfaces';
+import { GitUser } from '@share-files/interfaces';
 
 const mockGitUsers: GitUser[] = [
   {

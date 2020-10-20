@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-
-import {Currency} from '@share-files/interfaces';
+import { Component, Input, OnInit } from '@angular/core';
+import { Currency } from '@share-files/interfaces';
 
 @Component({
   selector: 'app-exchange-currency-table',

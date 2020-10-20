@@ -1,7 +1,7 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import {ExchangeCurrencyChooseAmountComponent} from './exchange-currency-choose-amount.component';
+import { ExchangeCurrencyChooseAmountComponent } from './exchange-currency-choose-amount.component';
 
 describe('ExchangeCurrencyChooseAmountComponent', () => {
   let component: ExchangeCurrencyChooseAmountComponent;

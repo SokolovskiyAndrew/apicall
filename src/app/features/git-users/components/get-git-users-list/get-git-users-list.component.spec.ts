@@ -1,10 +1,10 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {GetGitUsersListComponent} from './get-git-users-list.component';
-import {GetGitUsersDataService} from '../../services';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {GitUser} from '@share-files/interfaces';
-import {of} from 'rxjs';
+import { GetGitUsersListComponent } from './get-git-users-list.component';
+import { GetGitUsersDataService } from '../../services';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { GitUser } from '@share-files/interfaces';
+import { of } from 'rxjs';
 
 const mockGitUsers: GitUser[] = [
   {

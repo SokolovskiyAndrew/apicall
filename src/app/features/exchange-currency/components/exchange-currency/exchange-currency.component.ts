@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {GetExchangeCurrencyDataService} from '../../services';
-import {Currency} from '@share-files/interfaces';
+import { GetExchangeCurrencyDataService } from '../../services';
+import { Currency } from '@share-files/interfaces';
 
 @Component({
   selector: 'app-exchange-currency',
