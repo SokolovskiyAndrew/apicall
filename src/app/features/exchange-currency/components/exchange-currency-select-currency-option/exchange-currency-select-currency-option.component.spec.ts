@@ -109,14 +109,14 @@ describe('ExchangeCurrencySelectCurrencyOptionComponent', () => {
     });
   });
 
-  it('getCalculationResult() should call service calculateExchangeCurrency function if there i\'snt validation error', () => {
+  it('getCalculationResult() should call service calculateExchangeCurrency function if there i"snt validation error', () => {
     const spy = spyOn(calcService, 'calculateExchangeCurrency');
     spyOn(component, 'checkSelectBoxOnErrors').and.returnValue('');
     component.getCalculationResult();
     expect(spy).toHaveBeenCalled();
   });
 
-  it('getCalculationResult() should\'t call service calculateExchangeCurrency function if there is validation error', () => {
+  it('getCalculationResult() should"t call service calculateExchangeCurrency function if there is validation error', () => {
     const spy = spyOn(calcService, 'calculateExchangeCurrency');
     spyOn(component, 'checkSelectBoxOnErrors').and.returnValue(
       'Please, select both currencies'
