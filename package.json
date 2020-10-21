@@ -5,11 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --code-coverage",
+    "test": "ng test",
+    "test:cov": "ng test --code-coverage --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "p": "prettier --write \"src/**/*.+(js|html|css|scss|ts|jsx|tsx)\"",
-    "common": "prettier --write \"src/**/*.+(js|html|css|scss|ts|jsx|tsx)\" && ng lint && ng test --watch=false && ng build"
+    "common": "npm run p && npm run lint && npm run test:cov && npm run build "
   },
   "private": true,
   "dependencies": {
