@@ -5,7 +5,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PreloaderService } from '../components/preloader/services/preloader.service';
+import { PreloaderService } from '../components/preloader/services';
 import { Injectable } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
@@ -14,9 +14,9 @@ export class LoadingSpinnerInterceptor implements HttpInterceptor {
   constructor(public spinner: PreloaderService) {}
 
   intercept(
-    req: HttpRequest<any>,
+    req: HttpRequest<{}>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable<HttpEvent<{}>> {
     this.spinner.showLoadingSpinner();
 
     console.log('Request headers', req.headers);
